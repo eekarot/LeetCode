@@ -1,0 +1,32 @@
+题目描述：
+请写出一个高效的在m*n矩阵中判断目标值是否存在的算法，矩阵具有如下特征：
+每一行的数字都从左到右排序
+每一行的第一个数字都比上一行最后一个数字大
+例如：
+对于下面的矩阵：
+[↵  [1,   3,  5,  7],↵  [10, 11, 16, 20],↵  [23, 30, 34, 50]↵]
+要搜索的目标值为3，返回true
+
+解决思路：
+从左下角开始和目标进行对比。如果当前位置的值比目标值大，则上移一行；如果比目标值小，则右移一列。
+
+提交代码：
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int> > &matrix, int target) {
+        int i = matrix.size() - 1;
+        int j = 0;
+        while(i >= 0 && j < matrix[0].size()){
+            if(matrix[i][j] == target){
+                return true;
+            }
+            else if(matrix[i][j] > target){
+                --i;
+            }
+            else if(matrix[i][j] < target){
+                ++j;
+            }
+        }
+        return false;
+    }
+};
