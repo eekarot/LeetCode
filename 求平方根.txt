@@ -1,0 +1,21 @@
+题目描述：
+实现函数 int sqrt(int x). 
+计算并返回x的平方根
+
+解决方案：
+从1开始，2倍距离做搜索；之后再向后1的距离做搜索。
+
+提交代码：
+class Solution {
+public:
+    int sqrt(int x) {
+        long long i = 1;
+        while(i * i < x){
+            i *= 2;
+        }
+        while(i * i > x){
+            i--;
+        }
+        return i;
+    }
+};
