@@ -1,0 +1,39 @@
+题目描述：
+给定一个m*n的矩阵，如果有一个元素是0，就把该元素所在的行和列上的元素全置为0，要求使用原地算法。
+拓展：
+你的算法有使用额外的空间吗？
+一种比较直接的算法是利用O(m,n)的空间，但是这不是一个好的解法
+使用简单的改进可以在O(m+n)的空间解决这个问题，但是还不是最佳的解法
+你能在常量级的空间复杂度内解决这个问题吗？
+
+解决思路：
+我的解决方案是声明两个向量，用于记录0元素的行和列。看别人的解答，有使用矩阵的第一行和第一列来做记录位置的，这样应该更节省空间。
+
+提交代码：
+class Solution {
+public:
+    void setZeroes(vector<vector<int> > &matrix) {
+        vector<int> row;
+        vector<int> col;
+        int m = matrix.size();
+        int n = matrix[0].size();
+        for(int i = 0; i < m; ++i){
+            for(int j = 0; j < n; ++j){
+                if(matrix[i][j] == 0){
+                    row.push_back(i);
+                    col.push_back(j);
+                }
+            }
+        }
+        for(int i = 0; i < row.size(); ++i){
+            for(int j = 0; j < n; ++j){
+                matrix[row[i]][j] = 0;
+            }
+        }
+        for(int i = 0; i < col.size(); ++i){
+            for(int j = 0; j < m; ++j){
+                matrix[j][col[i]] = 0;
+            }
+        }
+    }
+};
