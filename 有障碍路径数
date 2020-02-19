@@ -1,0 +1,44 @@
+题目描述：
+对于给定的二维0,1数组，0表示可以通过，1表示不能通过。
+求左上角到右下角一共有多少条路径。
+
+结题思路：
+当前点的路径数=左边点的路径数+上边点的路径数
+如果原数组中当前点的值为1，则当前点的路径数等于0
+
+提交代码：
+class Solution {
+public:
+    int uniquePathsWithObstacles(vector<vector<int> > &a) {
+        int m = a.size();
+        int n = a[0].size();
+        vector<vector<int>> p(m,vector<int>(n,0));
+        for(int i = 0; i < m; ++i){
+            if(a[i][0] == 1) {
+                break;
+            }
+            else{
+                p[i][0] = 1;
+            }
+        }
+        for(int j = 0; j < n; ++j){
+            if(a[0][j] == 1) {
+                break;
+            }
+            else{
+                p[0][j] = 1;
+            }
+        }
+        for(int i = 1; i < m; ++i){
+            for(int j = 1; j < n; ++j){
+                if(a[i][j] == 1){
+                    p[i][j] = 0;
+                }
+                else{
+                    p[i][j] = p[i-1][j] + p[i][j-1];
+                }
+            }
+        }
+        return p[m-1][n-1];
+    }
+};
