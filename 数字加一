@@ -1,0 +1,28 @@
+题目描述：
+给出用数字数组表示的一个非负整数，请对该整数加1。
+
+解题思路：
+增加一个进位的数字，每次加法的时候加进去
+
+提交代码：
+class Solution {
+public:
+    vector<int> plusOne(vector<int> &digits) {
+        vector<int> res;
+        int flag = 0;
+        int temp;
+        int n = digits.size();
+        for(int i = n - 1; i>= 0; --i){
+            if(i == n - 1)
+                temp = digits[i] + 1 + flag;
+            else
+                temp = digits[i] + flag;
+            res.push_back(temp % 10);
+            flag = temp / 10;
+        }
+        if(flag != 0)
+            res.push_back(flag);
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
