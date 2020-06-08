@@ -1,0 +1,36 @@
+题目描述：
+给你数字 k ，请你返回和为 k 的斐波那契数字的最少数目，其中，每个斐波那契数字都可以被使用多次。
+
+斐波那契数字定义为：
+F1 = 1
+F2 = 1
+Fn = Fn-1 + Fn-2 ， 其中 n > 2 。
+数据保证对于给定的 k ，一定能找到可行解。
+1 <= k <= 10^9
+
+解题思路：
+因为题目中的k有范围，可以先用数组记录下范围内的斐波那契数列。
+首先，找到距离k最且小于k的数n，将k-n的值赋给k，然后循环，直到k为0。
+
+代码：
+class Solution {
+public:
+    int findMinFibonacciNumbers(int k) {
+        vector<int> fib(1);
+        int a = 1, b = 1;
+        while(b <= (int)1e9){
+            fib.push_back(b);
+            int temp = b;
+            b = a + b;
+            a = temp;
+        }
+        int i = fib.size() - 1;
+        int ans = 0;
+        while(k > 0){
+            while(fib[i] > k) --i;
+            k = k - fib[i];
+            ++ ans;
+        }
+        return ans;
+    }
+};
