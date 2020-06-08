@@ -1,3 +1,9 @@
+2020-6-8
+1.连续的子数组和 https://leetcode-cn.com/problems/continuous-subarray-sum/
+2.连续子数组的最大和 https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
+3.买卖股票的最佳时机含手续费 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+4.和为 K 的最少斐波那契数字数目 https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k/
+
 2020-2-19
 1.数字加一  https://www.nowcoder.com/practice/4d135ddb2e8649ddb59ee7ac079aa882?tpId=46&tqId=29111&tPage=5&rp=5&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking
 2.合并有序链表  https://www.nowcoder.com/practice/a479a3f0c4554867b35356e0d57cf03d?tpId=46&tqId=29114&tPage=5&rp=5&ru=%2Fta%2Fleetcode&qru=%2Fta%2Fleetcode%2Fquestion-ranking
